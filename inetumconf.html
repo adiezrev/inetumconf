@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!--<meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">-->
+  <title>InetumConf22</title>
+
+  <script src="assets/lib/vuejs/vue.min.js"></script>
+
+  <link href="assets/lib/material/fonts.css" rel="stylesheet">
+  <!--<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">-->
+  <link href="assets/lib/material/materialdesignicons.min.css" rel="stylesheet">
+  <link href="assets/lib/material/vuetify.min.css" rel="stylesheet">
+
+
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="assets/css/inetumconf.css" rel="stylesheet">
+
+  <style>
+    [v-cloak] {
+        display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+
+      <v-app class="conf-main" v-cloak>
+        <v-main>
+          <v-container>
+              <v-row>
+                  <v-col class="px-0">
+                      <section class="header text-center d-flex justify-start align-end">
+                        <span class="mx-5"><a class="hashtag" :href="'https://twitter.com/hashtag/'+conferencia.tag" target="_blank" rel="noopener noreferrer">#{{conferencia.tag}}</a>
+                        <span class="mx-5 title-info">{{conferencia.fecha}}</span>
+                      </section>
+                  </v-col>
+              </v-row>
+              <v-row class="menu my-0">
+                  <v-col cols="12" sm="6" md="3" class="text-h5 text-center"><a href="#ponentes">PONENTES</a></v-col>
+                  <v-col cols="12" sm="6" md="3" class="text-h5 text-center"><a href="#ponentes">CHARLAS</a></v-col>
+                  <v-col cols="12" sm="6" md="3" class="text-h5 text-center"><a href="#agenda">AGENDA</a></v-col>
+                  <v-col cols="12" sm="6" md="3" class="text-h5 text-center"><a href="#localizacion">LOCALIZACIÓN</a></v-col>
+              </v-row>
+              <v-row class="py-6"><v-col class="text-h5 text-center divider"><div id="ponentes">PONENTES</div></v-col></v-row>
+              <v-row>
+                  <v-col cols="12" sm="6" md="3" v-for="[key, ponente] in conferencia.ponentes" :key="ponente.id">
+                      <v-card class="mx-auto" max-width="344">
+                          <v-img :src="ponente.avatar"></v-img>
+                          <v-card-title>
+                            <strong>{{ponente.nombre}}</strong>
+                          </v-card-title>
+                          <v-card-subtitle>
+                            {{ponente.descripcion}}
+                          </v-card-subtitle>
+                    </v-card>
+                  </v-col>
+              </v-row>
+              <v-row class="py-6"><v-col class="text-h5 text-center divider"><div id="charlas">CHARLAS</div></v-col></v-row>
+              <v-row justify="center">
+                  <v-expansion-panels inset>
+                    <v-expansion-panel v-for="[key, charla] in conferencia.charlas" :key="charla.id">
+                      <v-expansion-panel-header class="text-h5"><strong>{{charla.titulo}}</strong></v-expansion-panel-header>
+                      <v-expansion-panel-content>
+                        {{charla.sinopsis}}
+                      </v-expansion-panel-content>
+                    </v-expansion-panel>
+                  </v-expansion-panels>
+                </v-row>
+              <v-row class="py-6"><v-col class="text-h5 text-center divider"><div id="agenda">AGENDA</div></v-col></v-row>
+              <v-row>
+                  <v-col>
+                      <v-timeline dense>
+                          <v-timeline-item class="my-5" right v-for="puntoagenda in agendacompleta" :key="puntoagenda.id">
+                              <template v-slot:icon>
+                                  <v-avatar size="80">
+                                    <img :src="puntoagenda.ponente.avatar">
+                                  </v-avatar>
+                                </template>
+                                <v-card class="elevation-2">
+                                  <v-card-title class="text-h5">
+                                      {{puntoagenda.hora}} {{puntoagenda.charla.titulo}}</span>
+                                  </v-card-title>
+                                  <v-card-text> {{puntoagenda.ponente.nombre}}</v-card-text>
+                                </v-card>
+                          </v-timeline-item>
+                        </v-timeline>
+                  </v-col>
+              </v-row>
+              <v-row class="py-6"><v-col class="text-h5 text-center divider"><div id="localizacion">LOCALIZACION</div></v-col></v-row>
+              <v-row>
+                  <v-col>
+                      <div class="google-maps">
+                          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5810.53018412658!2d-2.9471700697404737!3d43.2668218665457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e502219b79d3b%3A0xab46bd7f8e043332!2sInetum!5e0!3m2!1ses!2ses!4v1647117014948!5m2!1ses!2ses" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                      </div>
+                  </v-col>
+              </v-row>
+              <v-row class="footer">
+                  <v-col>
+                      <v-row>
+                          <v-col class="text-center">
+                              <a href="https://www.linkedin.com/company/inetum/" target="_blank">Linkedin</a>
+                          </v-col>
+                          <v-col class="text-center">
+                              <a href="https://www.facebook.com/inetum.world" target="_blank">Facebook</a>
+                          </v-col>
+                          <v-col class="text-center">
+                              <a href="https://www.youtube.com/c/inetum" target="_blank">YouTube</a>
+                          </v-col>
+                          <v-col class="text-center">
+                              <a href="https://twitter.com/inetum_world" target="_blank">Twitter</a>
+                          </v-col>
+                          <v-col class="text-center">
+                              <a href="https://www.instagram.com/inetum_world/" target="_blank">Instagram</a>
+                          </v-col>
+                      </v-row>
+                  </v-col>
+              </v-row>
+          </v-container>
+        </v-main>
+      </v-app>
+    </div>
+   
+  </div>
+
+  <script src="assets/lib/vuetify/vuetify.min.js"></script>
+  <!--<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>-->
+  <script src="assets/js/inetumconf.js"></script>
+  <script>
+	      if('serviceWorker' in navigator) {
+        	navigator.serviceWorker.register('./sw.js');
+	      };
+  </script>
+</body>
+</html>

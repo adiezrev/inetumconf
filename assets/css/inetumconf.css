@@ -1,0 +1,58 @@
+/*body {
+    background-color: #232D4B;
+}*/
+
+.title-info {
+    color: white;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+.hashtag {
+    color: white !important;
+    font-size: 25pt;
+    font-weight: bold;
+}
+
+.header {
+    width: 100%;
+    height: 296px;
+    background: url( '../img/cover_employees.jpg') ;
+    background-size:     cover;          
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
+.detail {
+    color: rgb(0,170,154);
+}
+
+.menu {
+    background-color: #232D4B;
+    color: rgb(0,170,154);
+}
+
+.divider {
+    background-color: #232D4B;
+    color: rgb(0,170,154);
+}
+
+.footer {
+    background-color: #232D4B;
+    color: rgb(0,170,154);
+}
+
+.google-maps {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+}
+
+.google-maps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }

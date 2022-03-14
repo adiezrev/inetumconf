@@ -1,0 +1,42 @@
+{
+    "id": "inetumconf2022",
+    "short_name": "inetumConf",
+    "name": "InetumConf",
+    "start_url": "inetumconf.html",
+    "background_color": "#ffffff",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+            "src": "assets/logo/logo72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "assets/logo/logo96.png",
+            "type": "image/png",
+            "sizes": "96x96"
+        },
+        {
+            "src": "assets/logo/logo128.png",
+            "type": "image/png",
+            "sizes": "128x128"
+        },
+        {
+            "src": "assets/logo/logo144.png",
+            "type": "image/png",
+            "sizes": "144x144"
+        },
+        {
+            "src": "assets/logo/logo152.png",
+            "type": "image/png",
+            "sizes": "152x152"
+        },
+        {
+            "src": "assets/logo/logo192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        }
+      ]
+}
