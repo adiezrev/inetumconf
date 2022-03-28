@@ -1,5 +1,5 @@
 const CACHE_NAME = "inetumconf";
-const CACHE_VERSION = "0.3";
+const CACHE_VERSION = "0.4";
 const CACHE = CACHE_NAME+"-"+CACHE_VERSION;
 
 const APP_SHELL =[
@@ -16,8 +16,8 @@ const APP_SHELL =[
     'assets/img/ukn.png',
     'assets/lib/material/fonts.css',
     'assets/lib/material/materialdesignicons.min.css',
-    'assets/lib/font/materialdesignicons-webfont.woff2',
     'assets/lib/material/vuetify.min.css',
+    'assets/lib/fonts/materialdesignicons-webfont.woff2',
     'assets/lib/vuejs/vue.min.js',
     'assets/lib/vuetify/vuetify.min.js'
 ];
