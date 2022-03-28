@@ -1,5 +1,5 @@
 const CACHE_NAME = "inetumconf";
-const CACHE_VERSION = "0.1";
+const CACHE_VERSION = "0.3";
 const CACHE = CACHE_NAME+"-"+CACHE_VERSION;
 
 const APP_SHELL =[
@@ -45,12 +45,6 @@ self.addEventListener('fetch', event => {
         caches.open(CACHE).then(function(cache) {
           return cache.match(event.request).then(function (response) {
             return response || fetch(event.request).then((response) => {
-              /*if((!response.ok) && (response.url.includes(OPT_RESOURCES))) {
-                  return cache.match(DFT_PONENTE).then((response) =>  {
-                    console.log(response);
-                    return response;
-                  })
-              }*/
 
               if((!response.ok) && (response.url.includes(PATH_PONENTES))) {
                   console.log(response.url);

@@ -23,6 +23,10 @@
     background-position: center center;  
 }
 
+.rrss {
+    text-decoration-line: none;
+}
+
 .detail {
     color: rgb(0,170,154);
 }

@@ -13,8 +13,6 @@
   <!--<link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">-->
   <link href="assets/lib/material/materialdesignicons.min.css" rel="stylesheet">
   <link href="assets/lib/material/vuetify.min.css" rel="stylesheet">
-
-
   <link rel="manifest" href="manifest.json"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="assets/css/inetumconf.css" rel="stylesheet">
@@ -54,7 +52,8 @@
                             <strong>{{ponente.nombre}}</strong>
                           </v-card-title>
                           <v-card-subtitle>
-                            {{ponente.descripcion}}
+                            <span v-if="ponente.twitter"><a class="rrss" :href="ponente.twitter" target="_blank"><v-icon large left>mdi-twitter</v-icon></a></span>
+                            <span v-if="ponente.linkedin"><a class="rrss" :href="ponente.linkedin" target="_blank"><v-icon large left>mdi-linkedin</v-icon></a></span>
                           </v-card-subtitle>
                     </v-card>
                   </v-col>
