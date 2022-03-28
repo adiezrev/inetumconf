@@ -1,5 +1,5 @@
 const CACHE_NAME = "inetumconf";
-const CACHE_VERSION = "0.3";
+const CACHE_VERSION = "0.4";
 const CACHE = CACHE_NAME+"-"+CACHE_VERSION;
 
 const APP_SHELL =[
